@@ -835,7 +835,7 @@ func (m *OrdererBlockMetadata) GetConsenterMetadata() []byte {
 }
 
 type BlockExtension struct {
-	ExtensionData                 [][]byte `protobuf:"bytes,1,rep,name=data,proto3" json:"data,omitempty"`
+	ExtensionData                 [][]byte `protobuf:"bytes,1,rep,name=extensiondata,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
