@@ -598,6 +598,7 @@ type Block struct {
 	Header               *BlockHeader   `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
 	Data                 *BlockData     `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
 	Metadata             *BlockMetadata `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Extension			 *BlockExtension `protobuf:"bytes,4,opt,name=extension,proto3" json:"extension,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
 	XXX_unrecognized     []byte         `json:"-"`
 	XXX_sizecache        int32          `json:"-"`
@@ -831,6 +832,13 @@ func (m *OrdererBlockMetadata) GetConsenterMetadata() []byte {
 		return m.ConsenterMetadata
 	}
 	return nil
+}
+
+type BlockExtension struct {
+	ExtensionData                 [][]byte `protobuf:"bytes,1,rep,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func init() {
